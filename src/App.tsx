@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { DragDropContext, DraggableLocation } from 'react-beautiful-dnd';
 import './App.css';
-
-type CardMap = { [key: string]: string[] };
+import CardList from './components/cardList';
+import { CardMap } from './types';
 
 function App() {
   const [cards, setCards] = useState<CardMap>({
     todo: ['example card'],
-    inProgress: [],
+    inProgress: ['example 2'],
     done: []
   })
 
@@ -48,7 +48,7 @@ function App() {
       <main>
         {
           Object.entries(cards).map(([key, value]) => (
-            <></>
+            <CardList key={key} title={key} cards={value}></CardList>
           ))
         }
       </main>
