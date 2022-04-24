@@ -1,7 +1,6 @@
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 import { Droppable, Draggable } from 'react-beautiful-dnd';
 import { CardsContext } from '../cardsContext';
-import { Card as CardType, CardMap } from '../types'
 import Card from './card';
 import './cardList.css';
 
@@ -9,7 +8,7 @@ function CardList({title, cards, index, addTodoCard}: {title: string, cards: num
     const {allCards, setAllCards} = useContext(CardsContext);
 
     const addNewCard = () => {
-      const newCard = {title: '', description: ''};
+      const newCard = {title: 'New Card', description: 'Description'};
       setAllCards([...allCards, newCard]);
       addTodoCard(allCards.length);
     }

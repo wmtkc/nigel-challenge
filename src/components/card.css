@@ -16,6 +16,7 @@
 
 .card .description {
     margin-left: 1rem;
+    overflow-y: scroll;
 }
 
 .card:hover {

@@ -7,7 +7,12 @@ import { CardMap, Card } from './types';
 
 function App() {
 
-  const [allCards, setAllCards] = useState<Card[]>([{title: 'Example Task', description: 'task description'}]);
+  const [allCards, setAllCards] = useState<Card[]>([
+    {
+      title: 'Build Widgets', 
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+    }
+  ]);
 
   const [cardLists, setCardLists] = useState<CardMap>({
     toDo: [0],
