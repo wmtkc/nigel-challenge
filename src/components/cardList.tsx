@@ -5,8 +5,14 @@ import { Card as CardType, CardMap } from '../types'
 import Card from './card';
 import './cardList.css';
 
-function CardList({title, cards, index}: {title: string, cards: number[], index: number}) {
+function CardList({title, cards, index, addTodoCard}: {title: string, cards: number[], index: number, addTodoCard: (newIndex: number) => void}) {
     const {allCards, setAllCards} = useContext(CardsContext);
+
+    const addNewCard = () => {
+      const newCard = {title: '', description: ''};
+      setAllCards([...allCards, newCard]);
+      addTodoCard(allCards.length);
+    }
 
     return (
         <div className="card-list">
@@ -21,7 +27,7 @@ function CardList({title, cards, index}: {title: string, cards: number[], index:
                     <div className="drop-outer" {...dropProvided.droppableProps}>
                       <div className="drop-inner"ref={dropProvided.innerRef}>
                         {cards.map((cardIndex, i) => (
-                          <Draggable key={i} draggableId={allCards[cardIndex].title} index={i}>
+                          <Draggable key={i} draggableId={cardIndex + ''} index={i}>
                             {dragProvided => (
                               <div className="card-wrapper"
                                 {...dragProvided.dragHandleProps}
@@ -39,7 +45,7 @@ function CardList({title, cards, index}: {title: string, cards: number[], index:
                 )}
             </Droppable>
             {(index === 0) ? 
-              <div className="add-button-container"><button>+</button></div>
+              <div className="add-button-container"><button onClick={addNewCard}>+</button></div>
              : 
               <></>
             }

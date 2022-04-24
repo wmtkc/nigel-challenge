@@ -15,6 +15,10 @@ function App() {
     done: []
   })
 
+  const addTodoCard = (newIndex: number) => {
+    setCardLists({...cardLists, toDo: [...cardLists.toDo, newIndex]});
+  }
+
   // Reorder logic adapted from example at https://github.com/atlassian/react-beautiful-dnd
   const reorderCards = (source: DraggableLocation, destination?: DraggableLocation) => {
     // only reorder if the destination is resolved
@@ -59,7 +63,7 @@ function App() {
         <main>
           {
             Object.entries(cardLists).map(([key, value], index) => (
-              <CardList key={key} title={key} cards={value} index={index} />
+              <CardList key={key} title={key} cards={value} index={index} addTodoCard={addTodoCard} />
             ))
           }
         </main>
