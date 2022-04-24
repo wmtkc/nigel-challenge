@@ -1,0 +1,23 @@
+.card {
+    min-height: 5rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px 1px rgb(0 0 0 / 6%);
+
+    transition: box-shadow 0.3s ease-out;
+}
+
+.card .title {
+    margin-bottom: 0.25rem;
+}
+
+.card .description {
+    margin-left: 1rem;
+}
+
+.card:hover {
+    box-shadow: 0 0 5px 5px rgb(0 0 0 / 6%);
+}

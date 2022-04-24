@@ -1,9 +1,10 @@
 import React from 'react'
 import { Droppable, Draggable } from 'react-beautiful-dnd';
-import { Card } from '../types'
+import { Card as CardType, CardMap } from '../types'
+import Card from './card';
 import './cardList.css';
 
-function CardList({title, cards, index}: {title: string, cards: Card[], index: number}) {
+function CardList({title, cards, index}: {title: string, cards: CardType[], index: number}) {
     return (
         <div className="card-list">
             {/* convert camelCase to sentence Case */}
@@ -19,13 +20,12 @@ function CardList({title, cards, index}: {title: string, cards: Card[], index: n
                         {cards.map((card, index) => (
                           <Draggable key={index} draggableId={card.title} index={index}>
                             {dragProvided => (
-                              <div className="card"
+                              <div className="card-wrapper"
                                 {...dragProvided.dragHandleProps}
                                 {...dragProvided.draggableProps}
                                 ref={dragProvided.innerRef}
                               >
-                                <div className="title"><h4>{card.title}</h4></div>
-                                <div className="description">{card.description}</div>
+                                <Card data={card}/>
                               </div>
                             )}
                           </Draggable>

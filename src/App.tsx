@@ -54,7 +54,7 @@ function App() {
       <main>
         {
           Object.entries(cards).map(([key, value], index) => (
-            <CardList key={key} title={key} cards={value} index={index}></CardList>
+            <CardList key={key} title={key} cards={value} index={index} />
           ))
         }
       </main>
