@@ -53,8 +53,8 @@ function App() {
     <DragDropContext onDragEnd={({source, destination}) => reorderCards(source, destination)}>
       <main>
         {
-          Object.entries(cards).map(([key, value]) => (
-            <CardList key={key} title={key} cards={value}></CardList>
+          Object.entries(cards).map(([key, value], index) => (
+            <CardList key={key} title={key} cards={value} index={index}></CardList>
           ))
         }
       </main>

@@ -1,15 +1,17 @@
 .card-list {
-    width:33%;
+    display: flex;
+    flex-direction: column;
+    width: 33%;
     margin-bottom: 10%;
-    background-color:#eee;
-    border-radius:5px;
-    box-shadow:1px 1px 1px 1px rgb(0 0 0 / 6%);
+    background-color: #eee;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px 1px rgb(0 0 0 / 6%);
 
     padding: 1rem;
 }
 
 .title-container {
-    text-transform:capitalize;
+    text-transform: capitalize;
 }
 
 h3, h4 {
@@ -17,24 +19,24 @@ h3, h4 {
 }
 
 .drop-outer {
-    height: 90%;
-    margin-top:2rem;
+    flex-grow: 1;
+    margin-top: 2rem;
 }
 
 .drop-inner {
     height: 100%;
-    display:flex;
-    flex-direction:column;
+    display: flex;
+    flex-direction: column;
 }
 
 .card {
-    min-height:5rem;
-    padding:1rem;
-    margin-bottom:1rem;
+    min-height: 5rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
 
     background-color: white;
     border-radius: 5px;
-    box-shadow:1px 1px 1px 1px rgb(0 0 0 / 6%);
+    box-shadow: 1px 1px 1px 1px rgb(0 0 0 / 6%);
 
     transition: box-shadow 0.3s ease-out;
 }
@@ -49,4 +51,23 @@ h3, h4 {
 
 .card:hover {
     box-shadow: 0 0 5px 5px rgb(0 0 0 / 6%);
+}
+
+.add-button-container button {
+    font-size: 1.5rem;
+    color: white;
+
+    height: 2rem;
+    width: 2rem;
+    
+    background-color: darkseagreen;
+    border-radius: 3px;
+    border: 1px solid darkseagreen;
+
+    cursor:pointer;
+}
+
+.add-button-container button:hover {
+    background-color: olivedrab;
+    border-color: olivedrab;
 }

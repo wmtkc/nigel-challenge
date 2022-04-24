@@ -3,7 +3,7 @@ import { Droppable, Draggable } from 'react-beautiful-dnd';
 import { Card } from '../types'
 import './cardList.css';
 
-function CardList({title, cards}: {title: string, cards: Card[]}) {
+function CardList({title, cards, index}: {title: string, cards: Card[], index: number}) {
     return (
         <div className="card-list">
             {/* convert camelCase to sentence Case */}
@@ -35,6 +35,11 @@ function CardList({title, cards}: {title: string, cards: Card[]}) {
                     </div>
                 )}
             </Droppable>
+            {(index === 0) ? 
+              <div className="add-button-container"><button>+</button></div>
+             : 
+              <></>
+            }
         </div>
     )
 }
