@@ -3,4 +3,4 @@ export type Card = {
     description: string
 }
 
-export type CardMap = { [key: string]: Card[] };
+export type CardMap = { [key: string]: number[] };

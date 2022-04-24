@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
 import { DragDropContext, DraggableLocation } from 'react-beautiful-dnd';
 import './App.css';
+import { CardsContext } from './cardsContext';
 import CardList from './components/cardList';
-import { CardMap } from './types';
+import { CardMap, Card } from './types';
 
 function App() {
-  const [cards, setCards] = useState<CardMap>({
-    toDo: [{title: 'Example Task', description: 'task description'}],
+
+  const [allCards, setAllCards] = useState<Card[]>([{title: 'Example Task', description: 'task description'}]);
+
+  const [cardLists, setCardLists] = useState<CardMap>({
+    toDo: [0],
     inProgress: [],
     done: []
   })
@@ -15,8 +19,8 @@ function App() {
   const reorderCards = (source: DraggableLocation, destination?: DraggableLocation) => {
     // only reorder if the destination is resolved
     if (destination) {
-      const current = [...cards[source.droppableId]];
-      const next = [...cards[destination.droppableId]];
+      const current = [...cardLists[source.droppableId]];
+      const next = [...cardLists[destination.droppableId]];
       const target = current[source.index];
 
       // moving to same list
@@ -28,8 +32,8 @@ function App() {
         // insert at new index
         reordered.splice(destination.index, 0, removed);
 
-        setCards({
-          ...cards,
+        setCardLists({
+          ...cardLists,
           [source.droppableId]: reordered
         });
       } else {
@@ -40,8 +44,8 @@ function App() {
         // insert into next
         next.splice(destination.index, 0, target);
 
-        setCards({
-          ...cards,
+        setCardLists({
+          ...cardLists,
           [source.droppableId]: current,
           [destination.droppableId]: next
         });
@@ -51,13 +55,15 @@ function App() {
 
   return (
     <DragDropContext onDragEnd={({source, destination}) => reorderCards(source, destination)}>
-      <main>
-        {
-          Object.entries(cards).map(([key, value], index) => (
-            <CardList key={key} title={key} cards={value} index={index} />
-          ))
-        }
-      </main>
+      <CardsContext.Provider value={{allCards, setAllCards}}>
+        <main>
+          {
+            Object.entries(cardLists).map(([key, value], index) => (
+              <CardList key={key} title={key} cards={value} index={index} />
+            ))
+          }
+        </main>
+      </CardsContext.Provider>
     </DragDropContext>
   );
 }
