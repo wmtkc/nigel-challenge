@@ -1,9 +1,9 @@
 import React from 'react'
 import { Droppable, Draggable } from 'react-beautiful-dnd';
-import { Cards } from '../types'
+import { Card } from '../types'
 import './cardList.css';
 
-function CardList({title, cards}: {title: string, cards: Cards}) {
+function CardList({title, cards}: {title: string, cards: Card[]}) {
     return (
         <div className="card-list">
             {/* convert camelCase to sentence Case */}
@@ -17,14 +17,15 @@ function CardList({title, cards}: {title: string, cards: Cards}) {
                     <div className="drop-outer" {...dropProvided.droppableProps}>
                       <div className="drop-inner"ref={dropProvided.innerRef}>
                         {cards.map((card, index) => (
-                          <Draggable key={card} draggableId={card} index={index}>
+                          <Draggable key={index} draggableId={card.title} index={index}>
                             {dragProvided => (
                               <div className="card"
                                 {...dragProvided.dragHandleProps}
                                 {...dragProvided.draggableProps}
                                 ref={dragProvided.innerRef}
                               >
-                                <div>{card}</div>
+                                <div className="title"><h4>{card.title}</h4></div>
+                                <div className="description">{card.description}</div>
                               </div>
                             )}
                           </Draggable>

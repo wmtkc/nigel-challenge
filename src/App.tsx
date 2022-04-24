@@ -6,7 +6,7 @@ import { CardMap } from './types';
 
 function App() {
   const [cards, setCards] = useState<CardMap>({
-    toDo: ['example 1', 'example 2', 'example 3'],
+    toDo: [{title: 'Example Task', description: 'task description'}],
     inProgress: [],
     done: []
   })

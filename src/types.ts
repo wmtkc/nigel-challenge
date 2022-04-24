@@ -1,2 +1,6 @@
-export type Cards = string[];
-export type CardMap = { [key: string]: Cards };
+export type Card = {
+    title: string
+    description: string
+}
+
+export type CardMap = { [key: string]: Card[] };
