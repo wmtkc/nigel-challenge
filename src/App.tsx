@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { DragDropContext, DraggableLocation } from 'react-beautiful-dnd';
 import './App.css';
 import { CardsContext } from './cardsContext';

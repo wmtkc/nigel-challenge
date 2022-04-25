@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react'
+import { useContext, useState } from 'react';
 import { EditText, EditTextarea } from 'react-edit-text';
 import { CardsContext } from '../cardsContext';
 import './card.css';
@@ -16,7 +16,7 @@ function Card({index}: {index: number}) {
             description: description
         };
 
-        setAllCards(newCards)
+        setAllCards(newCards);
     }
 
     return (
