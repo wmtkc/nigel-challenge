@@ -1,13 +1,18 @@
 .card {
-    min-height: 5rem;
+    height: 6rem;
     padding: 1rem;
     margin-bottom: 1rem;
 
     background-color: white;
     border-radius: 5px;
     box-shadow: 1px 1px 1px 1px rgb(0 0 0 / 6%);
+    border-left: 4px solid #333;
 
     transition: box-shadow 0.3s ease-out;
+}
+
+.card:hover {
+    box-shadow: 3px 3px 8px 5px rgb(0 0 0 / 10%);
 }
 
 .card .title {
@@ -19,6 +24,7 @@
     overflow-y: scroll;
 }
 
-.card:hover {
-    box-shadow: 0 0 5px 5px rgb(0 0 0 / 6%);
+.card .description textarea {
+    height: 4rem;
+    width: 90%;
 }

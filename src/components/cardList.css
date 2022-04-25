@@ -11,6 +11,18 @@
     padding: 1rem;
 }
 
+.card-list:nth-child(1) {
+    background-color: palevioletred;
+}
+
+.card-list:nth-child(2) {
+    background-color: palegoldenrod;
+}
+
+.card-list:nth-child(3) {
+    background-color: palegreen;
+}
+
 .title-container {
     text-transform: capitalize;
 }
@@ -37,19 +49,20 @@ h3, h4 {
 
 .add-button-container button {
     font-size: 1.5rem;
-    color: white;
+    color: #333;
 
     height: 2rem;
     width: 2rem;
     
-    background-color: darkseagreen;
+    background-color: lavender;
     border-radius: 3px;
-    border: 1px solid darkseagreen;
+    border: 1px solid lavender;
 
     cursor:pointer;
+    transition: 0.3s;
 }
 
 .add-button-container button:hover {
-    background-color: olivedrab;
-    border-color: olivedrab;
+    background-color: #D7BDE2;
+    border-color: #D7BDE2;
 }

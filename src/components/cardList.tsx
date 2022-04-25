@@ -8,7 +8,7 @@ function CardList({title, cards, index, addTodoCard}: {title: string, cards: num
     const {allCards, setAllCards} = useContext(CardsContext);
 
     const addNewCard = () => {
-      const newCard = {title: 'New Card', description: 'Description'};
+      const newCard = {title: 'New Task', description: 'Description'};
       setAllCards([...allCards, newCard]);
       addTodoCard(allCards.length);
     }
@@ -26,7 +26,7 @@ function CardList({title, cards, index, addTodoCard}: {title: string, cards: num
                     <div className="drop-outer" {...dropProvided.droppableProps}>
                       <div className="drop-inner"ref={dropProvided.innerRef}>
                         {cards.map((cardIndex, i) => (
-                          <Draggable key={i} draggableId={cardIndex + ''} index={i}>
+                          <Draggable key={'card-' + cardIndex} draggableId={'card-' + cardIndex} index={i}>
                             {dragProvided => (
                               <div className="card-wrapper"
                                 {...dragProvided.dragHandleProps}

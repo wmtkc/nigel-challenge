@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { DragDropContext, DraggableLocation } from 'react-beautiful-dnd';
 import './App.css';
 import { CardsContext } from './cardsContext';
@@ -10,7 +10,7 @@ function App() {
   const [allCards, setAllCards] = useState<Card[]>([
     {
       title: 'Build Widgets', 
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore'
     }
   ]);
 
